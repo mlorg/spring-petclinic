@@ -10,3 +10,10 @@ mysql:
     - MYSQL_DATABASE=petclinic
   volumes:
     - "./conf.d:/etc/mysql/conf.d:ro"
+app:
+  image: petclinic
+  ports:
+    - "8080:8080"
+  environment:
+    - SPRING_PROFILE_ACTIVE=mysql
+    - MYSQL_URL=mysql:3306
